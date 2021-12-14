@@ -10,7 +10,7 @@ import fasttext.store.InputStreamFastTextInput;
 import fasttext.store.MMapFile;
 import fasttext.store.OutputStreamFastTextOutput;
 import org.apache.commons.cli.*;
-import org.apache.log4j.Logger;
+import java.util.logging.Logger;
 
 import java.io.*;
 import java.nio.file.FileSystems;
@@ -116,11 +116,11 @@ public class FastText {
 
   private static boolean checkModel(int magic, int version) throws IOException {
     if (magic != FASTTEXT_FILEFORMAT_MAGIC_INT) {
-      logger.error("Unhandled file format");
+      logger.severe("Unhandled file format");
       return false;
     }
     if (version > FASTTEXT_VERSION) {
-      logger.error("Input model version (" + version + ") doesn't match current version (" + FASTTEXT_VERSION + ")");
+      logger.severe("Input model version (" + version + ") doesn't match current version (" + FASTTEXT_VERSION + ")");
       return false;
     }
     return true;
@@ -459,7 +459,7 @@ public class FastText {
       }
       logger.info("Done. Word vectors precomputed.");
     } else {
-      logger.debug("Word vectors are already precomputed.");
+      logger.fine("Word vectors are already precomputed.");
     }
   }
 
