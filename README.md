@@ -1,5 +1,7 @@
 # fastText4j
 
+**This repo switches out the log4j dependency with java util logging.**
+
 Java port of C++ version of Facebook Research [fastText][fasttext].
 
 This implementation supports prediction for supervised and unsupervised models, whether they are quantized or not.
